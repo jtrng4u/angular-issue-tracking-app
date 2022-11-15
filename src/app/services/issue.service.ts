@@ -14,7 +14,7 @@ export class IssueService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getIssues(): Observable<Issue> {
+  getIssues()  {
     this.httpClient.get<Issue>(this.url).subscribe(resp => {
 
     });
