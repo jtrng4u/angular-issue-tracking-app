@@ -1,4 +1,5 @@
 export interface Issue {
+  _id: string;
   description: string;
   assignee: string;
   status: boolean;

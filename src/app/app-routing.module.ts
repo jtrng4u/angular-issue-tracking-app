@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AddIssueComponent} from "./components/add-issue/add-issue.component";
 
 const routes: Routes = [
-  {path:"/", component = IssueList},
-  {path:"/:issueId", component = Issue},
-  {path:"/issues/:assignee", component = IssueList},
-  {path:"/issues/:assignee", component = IssueList},
-  {path:"/addIssue", component = AddIssue},
-  {path:"/**", component = IssueList}
+  {path:"/addIssue", component: AddIssueComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "a41652b2-f58f-4919-8c96-a85b2fe509c9",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5069777"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get issue",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get issues",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter issues",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues?q={\"assignee\": \"Mano\"}",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{\"assignee\": \"Mano\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add issue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"testing3\",\r\n    \"assignee\": \"Sanjeev\",\r\n    \"status\": true,\r\n    \"severity\": \"LOW\",\r\n    \"creationDate\": \"2022-05-23T18:25:43.511Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update issue",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"closeDate\": \"2022-05-23T18:25:43.511Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues/6372f43ecbd79f6600003e48",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues",
+						"6372f43ecbd79f6600003e48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete issue",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "6372efd7c890f30a8fd1f37f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://issuetracking-8a3d.restdb.io/rest/issues/6372f43ecbd79f6600003e48",
+					"protocol": "https",
+					"host": [
+						"issuetracking-8a3d",
+						"restdb",
+						"io"
+					],
+					"path": [
+						"rest",
+						"issues",
+						"6372f43ecbd79f6600003e48"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
