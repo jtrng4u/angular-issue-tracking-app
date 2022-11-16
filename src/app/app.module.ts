@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IssueListComponent } from './components/issue-list/issue-list.component';
+
+
+const appRoutes:Routes = [
+  { path:'issues/', component: IssueListComponent}
+  
+];
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IssueListComponent
   ],
   imports: [
     BrowserModule,
