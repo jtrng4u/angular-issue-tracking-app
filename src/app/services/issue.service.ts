@@ -23,7 +23,6 @@ export class IssueService {
   }
 
   addIssue(issue: Issue): Observable<Issue> {
-    console.log('add issue called, key is', this.secret, issue);
     return this.httpClient.post<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
   }
 
@@ -37,7 +36,6 @@ export class IssueService {
 
   filterIssues(assignee: string): Observable<Issue[]> {
     let qParams = `?q={/"assignee/": /"${assignee}/"}`;
-
     return this.httpClient.get<Issue[]>(this.url + qParams,  {headers: {"x-apikey": this.secret}});
   }
 }
