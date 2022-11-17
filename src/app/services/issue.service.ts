@@ -27,6 +27,14 @@ export class IssueService {
     return this.httpClient.post<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
   }
 
+  closeIssue(id: string, closeDate: Date): Observable<Issue> {
+    let data = {
+      "_id": id,
+      "closeDate": closeDate.toString()
+    };
+    return this.httpClient.patch<Issue>(this.url,  data, {headers: {"x-apikey": this.secret}});
+  }
+
   updateIssue(issue: Issue): Observable<Issue> {
     return this.httpClient.patch<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
   }

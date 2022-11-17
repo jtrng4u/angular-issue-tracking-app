@@ -17,7 +17,7 @@ export class IssueListComponent implements OnInit {
   ngOnInit(): void {
     this.results = [];
     console.log("Requesting issues from api");
-    
+
     //subsribe is asynchronous
     this.issueservice.getIssues().subscribe(
       (response:Issue[]) => {
@@ -32,8 +32,9 @@ export class IssueListComponent implements OnInit {
     }
     );
     console.log("After Api call")
-
-
   }
 
+  closeIssue(_id: string): void {
+    this.issueservice.closeIssue(_id, new Date()).subscribe(t => console.log('issue closed'));
+  }
 }
