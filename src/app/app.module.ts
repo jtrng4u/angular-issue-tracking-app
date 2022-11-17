@@ -7,11 +7,10 @@ import { AppComponent } from './app.component';
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    IssueListComponent
+    IssueListComponent,
   ],
   imports: [
     BrowserModule,
