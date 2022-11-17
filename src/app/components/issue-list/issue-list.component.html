@@ -1,3 +1,20 @@
+<form (ngSubmit)="submitForm()" (input)="showSavedMessage = false" #form="ngForm">
+    <h2>Filter Issues</h2>
+    <div class="mb-3">
+      <label for="assignee class=" class="form-label">Assignee: </label>
+      <input type="text" class="form-control" id="assignee" name="assignee" [(ngModel)]="filter.assignee" #assignee="ngModel" required minlength="1">
+      <div *ngIf="assignee.invalid && (assignee.dirty || assignee.touched)" class="alert alert-danger mt-2" >
+        <div *ngIf="assignee.errors?.['required']">Assignee is required.</div>
+        <div *ngIf="assignee.errors?.['minlength']">Assignee must be at least 1 characters.</div>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Filter</button>
+      <div *ngIf="showSavedMessage" class="alert alert-success mt-2">Filter Saved</div>
+    </div>
+  </form>
+
 
 
 <div *ngFor="let q of results" >
@@ -9,6 +26,6 @@
         creationDate: {{q.creationDate}};
         closeDate: {{q.closeDate}};
     </p>
-    <a routerLink="/edit/{{issue._id}}"> Edit Issue </a>
+    <a routerLink="/edit/{{q._id}}"> Edit Issue </a>
 </div>
 
