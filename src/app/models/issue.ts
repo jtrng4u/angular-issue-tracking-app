@@ -1,14 +1,14 @@
 export interface Issue {
-  _id: string;
+  _id?: string;
   description: string;
   assignee: string;
   status: boolean;
-  severity: SeverityType;
+  severity: SeverityTypeEnum;
   creationDate: Date;
-  closeDate: Date;
+  closeDate?: Date;
 }
 
-export enum SeverityType {
+export enum SeverityTypeEnum {
   HIGH = "HIGH",
   MEDIUM = "MEDIUM",
   LOW = "LOW",

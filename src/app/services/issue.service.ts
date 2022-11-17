@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Issue} from "../models/issue";
 import {Observable} from "rxjs";
+import {Secret} from "../models/secret";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {Observable} from "rxjs";
 export class IssueService {
 
   url: string = "https://issuetracking-8a3d.restdb.io/rest/issues";
-  secret: string = "";
+  secret: string = Secret.apiKey;
   constructor(private httpClient: HttpClient) {
   }
 
@@ -22,6 +23,7 @@ export class IssueService {
   }
 
   addIssue(issue: Issue): Observable<Issue> {
+    console.log('add issue called, key is', this.secret, issue);
     return this.httpClient.post<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
   }
 

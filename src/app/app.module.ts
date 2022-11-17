@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule} from "@angular/common/http";
+import { FormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IssueListComponent } from './components/issue-list/issue-list.component';
-
-
-const appRoutes:Routes = [
-  { path:'issues/', component: IssueListComponent}
-  
-];
-
-
+import {AddIssueComponent} from "./components/add-issue/add-issue.component";
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IssueListComponent
+    AddIssueComponent,
+    IssueListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

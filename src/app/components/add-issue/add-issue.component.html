@@ -1,0 +1,46 @@
+<div>
+
+  <form id="addIssueForm" name="addIssueForm" (ngSubmit)="addIssue()" #addIssueForm="ngForm">
+    <h2>Add new issue</h2>
+    <div>
+      <label for="description">Description</label>
+      <input id="description" name="description" [(ngModel)]="issue.description" #desc="ngModel" required minlength="10">
+      <div *ngIf="desc.invalid && (desc.touched || desc.dirty)">
+        <div *ngIf="desc.errors?.['required']">Description is required</div>
+        <div *ngIf="desc.errors?.['minlength']">Description should have min 10 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="assignee">Assignee</label>
+      <input id="assignee" name="assignee" [(ngModel)]="issue.assignee" #assignee="ngModel" required>
+      <div *ngIf="assignee.invalid && (assignee.touched || assignee.dirty)">
+        <div *ngIf="assignee.errors?.['required']">Assignee is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="status">Status</label>
+      <select id="status" name="status" [(ngModel)]="issue.status" #status="ngModel" required>
+        <option value="true">Open</option>
+        <option value="true">Closed</option>
+      </select>
+      <div *ngIf="status.invalid && (status.touched || status.dirty)">
+        <div *ngIf="status.errors?.['required']">Status is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="severity">Severity</label>
+      <select id="severity" name="severity" [(ngModel)]="issue.severity" #severity="ngModel" required>
+        <option *ngFor="let severity of severities" value="{{severity}}">{{severity}}</option>
+      </select>
+      <div *ngIf="severity.invalid && (severity.touched || severity.dirty)">
+        <div *ngIf="severity.errors?.['required']">Status is required</div>
+      </div>
+    </div>
+
+    <button (click)="addIssue()" [disabled]="!addIssueForm.valid">Add Issue</button>
+  </form>
+
+</div>
