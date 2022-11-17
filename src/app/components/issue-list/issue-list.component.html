@@ -1,6 +1,7 @@
+<app-header></app-header>
 <div *ngFor="let q of results" >
     <p>
-        description: <a>{{q.description}}</a>
+        <a href="/issue/{{q._id}}">{{q.description}}</a>
     </p>
 </div>
 
