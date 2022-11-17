@@ -7,12 +7,6 @@ import { AppComponent } from './app.component';
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 
 
-const appRoutes:Routes = [
-  { path:'issues/', component: IssueListComponent}
-  
-];
-
-
 
 @NgModule({
   declarations: [
