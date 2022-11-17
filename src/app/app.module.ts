@@ -5,9 +5,11 @@ import { FormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddIssueComponent } from './components/add-issue/add-issue.component';
+import { IssueItemComponent } from './components/issue-item/issue-item.component';
 import { IssueListComponent } from './components/issue-list/issue-list.component';
-import {AddIssueComponent} from "./components/add-issue/add-issue.component";
 import { HeaderComponent } from './components/header/header.component';
+
 
 @NgModule({
   declarations: [

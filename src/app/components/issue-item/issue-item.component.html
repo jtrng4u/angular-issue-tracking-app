@@ -1,0 +1,67 @@
+<div *ngIf="displayEdit">
+  <h1>Issue Details</h1>
+  <table>
+    <tr>
+       <td><label for="description">Description:</label></td>
+       <td><label id="lblDescription">{{ issue.description }}</label></td>
+    </tr>
+    <tr>
+       <td><label for="assignee">Assignee:</label></td>
+       <td><label id="lblAssignee">{{ issue.assignee }}</label></td>
+    </tr>
+    <tr>
+       <td><label for="status">Status</label></td>
+       <td><label id="lblStatus">{{ issue.status }}</label></td>
+    </tr>
+    <tr>
+      <td><label for="severity">Severity</label></td>
+      <td><label id="lblSeverity">{{ issue.severity }}</label></td>
+     </tr>
+     <tr>
+      <td><label for="creationDate">Creation Date</label></td>
+      <td><label id="lblCreationDate">{{ issue.creationDate }}</label></td>
+     </tr>
+     <tr>
+      <td><label for="closeDate">Close Date</label></td>
+      <td><label id="lblCloseDate">{{ issue.closeDate }}</label></td>
+     </tr>
+ </table>
+ <br/>
+ <br/>
+ <div><button (click)="toggleEdit()">Edit</button></div>  
+</div>
+<div *ngIf="!displayEdit">
+<form>
+   <h1>Edit Issue</h1>
+   <table>
+       <tr>
+          <td><label for="description">Description:</label></td>
+          <td><label id="lblDescription">{{ issue.description }}</label></td>
+       </tr>
+       <tr>
+          <td><label for="assignee">Assignee:</label></td>
+          <td><input name="assignee" id="assignee" [(ngModel)]="issue.assignee" /></td>
+       </tr>
+       <tr>
+          <td><label for="status">Status:</label></td>
+          <td><input name="status" id="status" [(ngModel)]="issue.status" /></td>
+         </tr>
+         <tr>
+            <td><label for="severity">Severity</label></td>
+            <td><label id="lblSeverity">{{ issue.severity }}</label></td>
+           </tr>
+           <tr>
+            <td><label for="creationDate">Creation Date</label></td>
+            <td><label id="lblCreationDate">{{ issue.creationDate }}</label></td>
+           </tr>
+           <tr>
+            <td><label for="closeDate">Close Date</label></td>
+            <td><label id="lblCloseDate">{{ issue.closeDate }}</label></td>
+           </tr>
+    </table>
+    <br/>
+    <div><button type="submit">Save changes</button></div>
+    <br/>
+    <div><button (click)="toggleEdit()">Cancel</button></div>  
+ </form>
+</div>
