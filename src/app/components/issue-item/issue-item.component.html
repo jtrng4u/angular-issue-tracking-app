@@ -28,7 +28,7 @@
  </table>
  <br/>
  <br/>
- <div><button (click)="toggleEdit()">Edit</button></div>
+ <div><button (click)="toggleEdit()">Edit</button></div>  
 </div>
 <div *ngIf="!displayEdit">
 <form id="editIssueForm" name="editIssueForm" (ngSubmit)="editIssue()" #editIssueForm="ngForm">
@@ -51,8 +51,8 @@
           <td><label for="status">Status:</label></td>
           <td>
             <select id="status" name="status" [(ngModel)]="issue.status" #status="ngModel" required>
-               <option value=true>Open</option>
-               <option value=false>Closed</option>
+               <option value="true">Open</option>
+               <option value="false">Closed</option>
             </select>
             <div *ngIf="status.invalid && (status.touched || status.dirty)">
                <div *ngIf="status.errors?.['required']">Status is required</div>
@@ -75,6 +75,6 @@
     <br/>
     <div><button type="submit">Save changes</button></div>
     <br/>
-    <div><button (click)="toggleEdit()">Cancel</button></div>
+    <div><button (click)="toggleEdit()">Cancel</button></div>  
  </form>
 </div>
