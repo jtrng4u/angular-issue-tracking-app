@@ -13,13 +13,8 @@ export class IssueItemComponent implements OnInit {
   displayEdit:boolean = false;
 
   issue:Issue = {} as Issue;
-  //@Input() issue:Issue = {} as Issue;
-  //@Output() complete = new EventEmitter<void>();
 
   constructor(private issueService:IssueService, private route:ActivatedRoute) { }
-
-  //ngOnInit(): void {
-  //}
 
   ngOnInit(): void {
     let params = this.route.snapshot.paramMap;
@@ -29,6 +24,10 @@ export class IssueItemComponent implements OnInit {
       // console.log(response);
       this.issue = response;
     });
+  }
+
+  editIssue() {
+    this.issueService.updateIssue(this.issue).subscribe((t) => console.log('Issue updated', t));
   }
 
   toggleEdit():void{
