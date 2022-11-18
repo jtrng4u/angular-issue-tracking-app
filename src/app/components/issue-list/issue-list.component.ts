@@ -47,6 +47,13 @@ export class IssueListComponent implements OnInit {
   }
 
   closeIssue(_id: string): void {
+    let index = this.results.findIndex(i => i._id == _id);
+    this.results.splice(index,1);
     this.issueservice.closeIssue(_id, new Date()).subscribe(t => console.log('issue closed'));
+  }
+
+  getOpenCount()
+  {
+    return this.results.filter(issue => issue.status).length;
   }
 }

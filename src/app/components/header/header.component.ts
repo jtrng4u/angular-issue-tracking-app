@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {IssueService} from "../../services/issue.service";
 
 @Component({
@@ -9,12 +9,12 @@ import {IssueService} from "../../services/issue.service";
 export class HeaderComponent implements OnInit {
 
   constructor(private issueService: IssueService) { }
-  openIssuesCount: number = 0;
+  @Input() openIssuesCount: number = 0;
 
   ngOnInit(): void {
-    this.issueService.getIssues().subscribe(issues => {
-      console.log("got these issues", issues);
-      this.openIssuesCount = issues.filter(issue => issue.status).length;
-    })
+    // this.issueService.getIssues().subscribe(issues => {
+    //   console.log("got these issues", issues);
+    //   this.openIssuesCount = issues.filter(issue => issue.status).length;
+    // })
   }
 }

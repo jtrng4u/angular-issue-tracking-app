@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [openIssuesCount]="getOpenCount()"></app-header>
 
 <form (ngSubmit)="submitForm()" (input)="showSavedMessage = false" #form="ngForm">
     <h2>Filter Issues</h2>
@@ -21,7 +21,7 @@
 
 <div *ngFor="let q of results" >
     <p>
-        <a href="/issue/{{q._id}}">{{q.description}}</a> <button *ngIf="q.status" (click)="closeIssue(q._id)">Close</button>
+        <a href="/issue/{{q._id}}">{{q.description}}</a> <button *ngIf="q.status" (click)="closeIssue(q._id!)">Close</button>
     </p>
 </div>
 
