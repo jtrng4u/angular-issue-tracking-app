@@ -1,0 +1,12 @@
+
+    <p>
+        description: {{issue.description}}
+        assignee: {{issue.assignee}}
+        status: {{issue.status}}
+        severity: {{issue.severity}}
+        creationDate: {{issue.creationDate}}
+        closeDate: {{issue.closeDate}}
+        
+    </p>
+    <a routerLink="/edit/{{issue._id}}"> Edit Issue </a>
+    <button (click)="removeIssueItem()"> Delete Issue </button>

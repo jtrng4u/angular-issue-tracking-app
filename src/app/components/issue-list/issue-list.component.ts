@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
 import { Issue } from 'src/app/models/issue';
 import { IssueService } from 'src/app/services/issue.service';
 
@@ -9,11 +10,25 @@ import { IssueService } from 'src/app/services/issue.service';
 })
 export class IssueListComponent implements OnInit {
 
-  results:Issue[] = [
-  ];
+  results:Issue[] = [ ];
+
+  filter = {
+    assignee: "",
+    description: "",
+  }
+
+  showSavedMessage = false;
 
   constructor(private issueservice:IssueService) { }
 
+  submitForm(): void  {
+    
+    let results = this.issueservice.filterIssues(this.filter.assignee);
+    this.showSavedMessage = true;
+    this.results = results;
+
+  }
+  
   ngOnInit(): void {
     this.results = [];
     console.log("Requesting issues from api");
