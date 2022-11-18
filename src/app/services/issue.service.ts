@@ -23,6 +23,7 @@ export class IssueService {
   }
 
   addIssue(issue: Issue): Observable<Issue> {
+    console.log('add issue called, key is', this.secret, issue);
     return this.httpClient.post<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
   }
 
@@ -31,11 +32,12 @@ export class IssueService {
       "_id": id,
       "closeDate": closeDate.toString()
     };
-    return this.httpClient.patch<Issue>(this.url,  data, {headers: {"x-apikey": this.secret}});
+    return this.httpClient.patch<Issue>(this.url+ "/" + id,  data, {headers: {"x-apikey": this.secret}});
   }
 
   updateIssue(issue: Issue): Observable<Issue> {
-    return this.httpClient.patch<Issue>(this.url,  issue, {headers: {"x-apikey": this.secret}});
+    console.log('updated issue is: ', issue);
+    return this.httpClient.patch<Issue>(this.url+ "/" + issue._id,  issue, {headers: {"x-apikey": this.secret}});
   }
 
   deleteIssue(issue: Issue): Observable<string> {
@@ -43,7 +45,8 @@ export class IssueService {
   }
 
   filterIssues(assignee: string): Observable<Issue[]> {
-    let qParams = `?q={/"assignee/": /"${assignee}/"}`;
+    let qParams = `?q={"assignee": {"$regex": "(.*${assignee}.*)"}}`;
+    console.log('qParams is ', qParams);
     return this.httpClient.get<Issue[]>(this.url + qParams,  {headers: {"x-apikey": this.secret}});
   }
 }

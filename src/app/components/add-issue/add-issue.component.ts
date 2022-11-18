@@ -23,6 +23,7 @@ export class AddIssueComponent implements OnInit {
       status: Boolean(this.issue.status),
       severity: this.issue.severity,
       creationDate: new Date(),
+      closeDate: null
     }
 
     this.issueService.addIssue(newIssue).subscribe((t) => console.log('Issue added', t));

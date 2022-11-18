@@ -23,7 +23,7 @@
       <label for="status">Status</label>
       <select id="status" name="status" [(ngModel)]="issue.status" #status="ngModel" required>
         <option value="true">Open</option>
-        <option value="true">Closed</option>
+        <option value="false">Closed</option>
       </select>
       <div *ngIf="status.invalid && (status.touched || status.dirty)">
         <div *ngIf="status.errors?.['required']">Status is required</div>

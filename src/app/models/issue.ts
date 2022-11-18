@@ -5,7 +5,7 @@ export interface Issue {
   status: boolean;
   severity: SeverityTypeEnum;
   creationDate: Date;
-  closeDate?: Date;
+  closeDate: Date | null;
 }
 
 export enum SeverityTypeEnum {

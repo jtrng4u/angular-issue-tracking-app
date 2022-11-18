@@ -3,7 +3,7 @@
 <form (ngSubmit)="submitForm()" (input)="showSavedMessage = false" #form="ngForm">
     <h2>Filter Issues</h2>
     <div class="mb-3">
-      <label for="assignee class=" class="form-label">Assignee: </label>
+      <label for="assignee">Assignee: </label>
       <input type="text" class="form-control" id="assignee" name="assignee" [(ngModel)]="filter.assignee" #assignee="ngModel" required minlength="1">
       <div *ngIf="assignee.invalid && (assignee.dirty || assignee.touched)" class="alert alert-danger mt-2" >
         <div *ngIf="assignee.errors?.['required']">Assignee is required.</div>
